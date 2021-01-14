@@ -11,7 +11,7 @@ def match(text, pattern):
     >>> match('banana', 'ana')
     2
     """
-    return sum([1 for i in range(len(text)) if text[i:i + len(pattern)] == pattern])
+    return sum(text[i:i + len(pattern)] == pattern for i in range(len(text)))
 
 
 def substrings(word):

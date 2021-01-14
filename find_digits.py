@@ -15,11 +15,9 @@ def find_digits(number):
     >>> find_digits('1012')
     3
     """
-    counter = 0
-    for digit in number:
-        if int(digit) and int(number) % int(digit) == 0:
-            counter += 1
-    return counter
+    return sum(
+        bool(int(digit) and int(number) % int(digit) == 0) for digit in number
+    )
 
 if __name__ == '__main__':
     import doctest

@@ -25,13 +25,15 @@ from math import fabs
 T = input()
 
 def funny_or_not(string, string_reverse):
-    result_of_s = []
-    result_of_r = []
-    for idx, letter in enumerate(string[1:]):
-        result_of_s.append(fabs(ord(letter) - ord(string[idx])))
+    result_of_s = [
+        fabs(ord(letter) - ord(string[idx]))
+        for idx, letter in enumerate(string[1:])
+    ]
 
-    for idx, letter in enumerate(string_reverse[1:]):
-        result_of_r.append(fabs(ord(letter) - ord(string_reverse[idx])))
+    result_of_r = [
+        fabs(ord(letter) - ord(string_reverse[idx]))
+        for idx, letter in enumerate(string_reverse[1:])
+    ]
 
     if result_of_r == result_of_s:
         return "Funny"

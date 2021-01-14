@@ -26,12 +26,10 @@ def rangoli():
         line[MID_INDEX] = chr(97 + START_INDEX - (index + 1))
         mid_ch_pos = ord(line[MID_INDEX])
         mid_to_outer = 0
-        character_index = 0
         if line[MID_INDEX] not in ALPHABET:
             break
-        for _ in range(index + 1):
+        for character_index, _ in enumerate(range(index + 1), start=1):
             mid_to_outer += 2
-            character_index += 1
             line[MID_INDEX + mid_to_outer] = chr(mid_ch_pos + character_index)
             line[MID_INDEX - mid_to_outer] = chr(mid_ch_pos + character_index)
     stack.pop()

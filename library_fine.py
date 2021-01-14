@@ -69,27 +69,25 @@ def fee(book_return_date, book_due_date):
     book_return = Date(*map(int, book_return_date.split()))
 
     if book_return.year > due.year:
-        fine = 10000
+        return 10000
 
     elif book_return.year < due.year:
-        fine = 0
+        return 0
 
     elif book_return.month > due.month:
-        fine = 500 * (book_return.month - due.month)
+        return 500 * (book_return.month - due.month)
 
     elif book_return.month < due.month:
-        fine = 0
+        return 0
 
     elif book_return.day > due.day:
-        fine = 15 * (book_return.day - due.day)
+        return 15 * (book_return.day - due.day)
 
     elif book_return.day < due.day:
-        fine = 0
+        return 0
 
     else:
-        fine = 0
-
-    return fine
+        return 0
 
 
 if __name__ == '__main__':
